@@ -1,0 +1,12 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ecommerce-api
+  annotations: { cert-manager.io/cluster-issuer: letsencrypt }
+spec:
+  tls: [{ hosts: [api.example.com], secretName: ecommerce-tls }]
+  rules:
+    - host: api.example.com
+      http:
+        paths:
+          - { path: /, pathType: Prefix, backend: { service: { name: ecommerce-api, port: { number: 80 } } } }

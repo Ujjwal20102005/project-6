@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata: { name: ecommerce-config }
+data:
+  DEBUG: "false"
+  ALLOWED_HOSTS: "api.example.com"
+  ALLOWED_ORIGINS: "https://shop.example.com"
+  RATE_LIMIT_PER_MIN: "100"
+  DATABASE_URL: "postgresql://user:pass@postgres:5432/shop"  # replace; use a Secret in real use
